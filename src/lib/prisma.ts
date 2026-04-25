@@ -1,5 +1,5 @@
-// Prisma Client ko import kar rahe hain generated files se.
-import { PrismaClient } from '../../node_modules/.prisma/client';
+// Prisma Client ko import kar rahe hain.
+import { PrismaClient } from '@prisma/client';
 // PostgreSQL ke liye adapter import kar rahe hain taaki JS database se baat kar sake.
 import { PrismaPg } from '@prisma/adapter-pg';
 // 'pg' library import kar rahe hain jo connection pool manage karegi.
