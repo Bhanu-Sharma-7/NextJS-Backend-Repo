@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Premium CRUD with Prisma & PostgreSQL
 
-## Getting Started
+Ye ek simple lekin premium Task Management App hai jo Next.js, Prisma, aur PostgreSQL use karke banayi gayi hai.
 
-First, run the development server:
+## Features ✨
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Full CRUD**: Tasks add, read, update, aur delete kar sakte hain.
+- **Server Actions**: Saara backend logic Next.js Server Actions se handled hai.
+- **Prisma 7**: Latest Prisma architecture (Driver Adapters ke saath) use hui hai.
+- **Premium UI**: Ek sleek "Obsidian" dark theme vanilla CSS se design kiya gaya hai.
+- **Inline Editing**: Tasks ka naam directly UI se change kiya ja sakta hai.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack 🛠️
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Frontend**: Next.js (App Router)
+- **Database**: PostgreSQL (Neon.tech recommended)
+- **ORM**: Prisma 7
+- **Styling**: Vanilla CSS
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Setup Kaise Karein (Step-by-Step) 🚀
 
-## Learn More
+1.  **Dependencies Install Karein**:
+    ```bash
+    npm install
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+2.  **Environment Variables Set Karein**:
+    `.env` file mein apni PostgreSQL connection string daalein:
+    ```env
+    DATABASE_URL="postgresql://user:password@host:port/dbname?sslmode=verify-full"
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3.  **Database Migration**:
+    Tables create karne ke liye ye command run karein:
+    ```bash
+    npx prisma migrate dev --name init
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4.  **App Start Karein**:
+    ```bash
+    npm run dev
+    ```
 
-## Deploy on Vercel
+## Code Ki Samjh (Project Structure) 📂
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `prisma/schema.prisma`: Database ka naksha (Table structure).
+- `src/lib/prisma.ts`: Database connection ka logic (Singleton pattern).
+- `src/app/actions.ts`: Backend ke saare kaam (Add, Delete, Edit).
+- `src/app/page.tsx`: Main dashboard screen.
+- `src/app/components/TodoItem.tsx`: Ek single task aur uske actions ka component.
+- `src/app/globals.css`: Premium dark mode styles.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+Banaaya gaya hai **Antigravity AI** ke dwara. Seekhte rahiye! 🚀

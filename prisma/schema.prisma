@@ -1,20 +1,22 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+// Ye aapki Prisma schema file hai.
+// Isme hum batate hain ki hamara database kaunsa hai aur data kaise store hoga.
 
-// Get a free hosted Postgres database in seconds: `npx create-db`
-
+// Generator block batata hai ki Prisma Client (coding ke liye types) kahan aur kaise banega.
 generator client {
-  provider = "prisma-client-js"
+  provider = "prisma-client-js" // JavaScript/TypeScript ke liye client generate karo.
 }
 
+// Datasource block mein hum apne database ki details dete hain.
 datasource db {
-  provider = "postgresql"
+  provider = "postgresql" // Hum PostgreSQL database use kar rahe hain.
+  // DATABASE_URL variable .env file se load hota hai.
 }
 
+// Ye hamara Todo model hai, yaani database ki table.
 model Todo {
-  id        Int      @id @default(autoincrement())
-  title     String
-  completed Boolean  @default(false)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id        Int      @id @default(autoincrement()) // Har task ki unique ID jo apne aap badhegi (1, 2, 3...).
+  title     String                                // Task ka naam ya text.
+  completed Boolean  @default(false)               // Task khatam hua ya nahi (by default false).
+  createdAt DateTime @default(now())               // Task kab bana, uski current time.
+  updatedAt DateTime @updatedAt                    // Task jab bhi update hoga, ye time apne aap badal jayega.
 }
